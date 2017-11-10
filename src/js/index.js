@@ -9,41 +9,42 @@ import Dialog from '../compenent/dialog/GB-dialog';
 import Toast from '../compenent/toast/GB-message';
 
 
-
 init();
 
-function init () {
-  url.getUrl();
+function init() {
+    url.getUrl();
 
-  url.setUrl();
+    url.setUrl();
 
-  /*const render = require('../view/index.html');
-  const data = {
-    tit: 'tits'
-  };
+    /*const render = require('../view/index.html');
+    const data = {
+      tit: 'tits'
+    };
 
-  const html = render(data)
-  console.log(html)
+    const html = render(data)
+    console.log(html)
 
-  if (typeof document === 'object') {
-    document.body.innerHTML = html;
-  }*/
+    if (typeof document === 'object') {
+      document.body.innerHTML = html;
+    }*/
 
-  console.log('page home', Dialog);
-  events();
+    console.log('page home', Dialog);
+    events();
 }
 
-function events () {
-  document.getElementById('btnDialog').addEventListener('click', function () {
-    Dialog.show({
-      title: '标题',
-      content: '这里是弹出层内容'
-    });
-  }, false);
+function events() {
+    document.getElementById('btnDialog').addEventListener('click', function() {
+        Promise.resolve().then(() => {
+            console.log('hahaha Promise');
+        });
+        console.log(Promise)
+        Dialog.show({
+            title: '标题',
+            content: '这里是弹出层内容'
+        });
+    }, false);
 
-  document.getElementById('btnToast').addEventListener('click', function () {
-    Toast.show('Toast');
-  }, false);
+    document.getElementById('btnToast').addEventListener('click', function() {
+        Toast.show('Toast');
+    }, false);
 }
-
-

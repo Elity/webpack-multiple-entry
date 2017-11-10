@@ -178,7 +178,7 @@ const config = {
 		disableHostCheck: true,  // https://stackoverflow.com/questions/43650550/invalid-host-header-in-when-running-react-app
 		hot: false,
 		host: '0.0.0.0',
-		port: 8080,
+		port: 8081,
 		/*proxy: {
 		  "/m/public": {
 		  	target: "http://localhost:8080",
@@ -202,7 +202,7 @@ function getEntry (globPath) {
 			pathname = path.dirname(entry);
 		// js/lib/*.js 不作为入口
 		if (!entry.match(/\/js\/(lib|commons)\//)) {
-			entries[pathname.split('/').splice(3).join('/') + '/' + basename] = pathname + '/' + basename;
+			entries[pathname.split('/').splice(3).join('/') + '/' + basename] = ["babel-polyfill", pathname + '/' + basename];
 		}
 	});
 	return entries;
